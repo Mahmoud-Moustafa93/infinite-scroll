@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Infinity Scroll</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/scroll.PNG"
+    />
+    <link rel="stylesheet" href="dist/css/style.css" />
+
+    <!-- Script -->
+    <script defer src="dist/script.js"></script>
+  </head>
+  <body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <img src="assets/svgs/loader.svg" alt="Loading" class="loader-image" />
+    </div>
+
+    <!-- Scroll Container -->
+    <div class="scroll">
+      <!-- Title -->
+      <h1 class="scroll__title">Unsplash API &mdash; Infinite Scroll</h1>
+      <!-- Copyright text -->
+      <p class="footer__copyright">
+        © Copyright by
+        <a
+          class="footer__link footer__copyright-link"
+          href="https://pph.me/mahmoudmostafa"
+          target="_blank"
+          >Mahmoud Mostafa</a
+        >. All rights reserved.<br />
+        💥Saturday, November 04 2023💥
+      </p>
+
+      <!-- Image Container -->
+      <div class="scroll__image-container" id="scroll__image-container"></div>
+    </div>
+  </body>
+</html>

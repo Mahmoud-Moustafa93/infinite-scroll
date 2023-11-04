@@ -1,0 +1,59 @@
+/*
+Breakpoint width:
+0 - 600px: Phone
+600 - 768px: Phone landscape
+768 - 900px: Table portrait
+900 - 1024px: Table landscape
+1024 - 1200px: Small laptop
+1200 - 1800px: Laptop (Our default style)
+1800px & above: Big desktop
+
+$breakpoints argument names:
+- phone
+- phone-land
+- tab-port
+- tab-land
+- small-desktop
+- big-desktop
+*/
+
+$phone: 600px;
+$phone-land: 768px;
+$tab-port: 900px;
+$tab-land: 1024px;
+$small-desktop: 1200px;
+$big-desktop: 1800px;
+
+/* The mixin is for phone, tab-port & tab-land */
+@mixin respondMax($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/* This mixin is for big desktop only */
+@mixin respondMin($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Event wrapper
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within {
+      @content;
+    }
+  }
+}

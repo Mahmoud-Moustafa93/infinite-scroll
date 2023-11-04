@@ -1,0 +1,78 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+/**
+  * Set up a decent box model on the root element
+  */
+html {
+  font-size: 62.5%; // 1rem -> 10px
+  box-sizing: border-box;
+
+  @include respondMax($tab-port) {
+    font-size: 56.25%; // 1rem -> 9px
+  }
+
+  @include respondMax($phone) {
+    font-size: 50%; // 1rem -> 8px
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 400;
+  font-size: $default-font-size;
+  text-align: center;
+  line-height: 1.7;
+  color: $color-text;
+  background-color: whitesmoke;
+  min-height: 100vh;
+}
+
+.footer__copyright {
+  margin-top: 2rem;
+
+  &-link:link,
+  &-link:visited {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  &-link:hover,
+  &-link:active {
+    color: $color-primary;
+  }
+}
+
+/**
+  * Basic styles for links
+  */
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  @include on-event {
+    color: $color-text;
+    text-decoration: underline;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

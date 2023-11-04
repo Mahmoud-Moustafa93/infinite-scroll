@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+// 2. Vendors
+@import "vendors/normalize";
+
+// 3. Base stuff
+@import "base/base";
+
+// 4. Components
+@import "components/loader";
+
+/* ===================== Main Styling ===================== */
+
+.scroll {
+  &__title {
+    font-size: 4rem;
+    letter-spacing: 5px;
+    margin: 2.5rem 1rem 1.5rem;
+
+    @include respondMax($phone) {
+      font-size: 2rem;
+    }
+  }
+
+  &__image-container {
+    margin: 10px 30%;
+
+    @include respondMax($phone) {
+      margin: 10px;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    margin-top: 5px;
+  }
+}
