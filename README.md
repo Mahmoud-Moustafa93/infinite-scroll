@@ -1,4 +1,4 @@
-# Natours landing page
+# Infinite Scroll
 
 An infinite scroll images website.
 
