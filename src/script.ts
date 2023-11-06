@@ -1,7 +1,9 @@
-// Usplash API
-const count = 10;
+let isInitialLoad = true;
+
+// Unsplash API
+let initialCount = 5;
 const apiKey = "fvKLfGSyf2etmg7wZCOrngWd4L0pxS8z7vbDx6xPzmk";
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
+let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${initialCount}`;
 
 // DOM elements
 const loader = document.getElementById("loader")! as HTMLDivElement;
@@ -12,6 +14,10 @@ const scrollImageContainer = document.getElementById(
 let ready = false;
 let imagesLoadedNum = 0;
 let totalImages = 0;
+
+const updateAPIURLWithNewCount = function (picCount = initialCount) {
+  apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=${picCount}`;
+};
 
 // Check if all images were loaded
 const imageLoaded = function () {
@@ -30,6 +36,11 @@ const getPhotos = async function () {
 
     // Create image elements and insert them into the DOM
     createImageElement(data);
+
+    if (isInitialLoad) {
+      updateAPIURLWithNewCount(30);
+      isInitialLoad = false;
+    }
   } catch (err) {
     loader.classList.add("hidden");
     scrollImageContainer.innerHTML = `Sorry, an error occured while fetching the images due to reaching requests limit!<br/>Please try reloading after an hour.`;
@@ -61,7 +72,6 @@ document.addEventListener("scroll", function () {
     ready
   ) {
     ready = false;
-    loader.classList.remove("hidden");
     getPhotos();
   }
 });
