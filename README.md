@@ -10,4 +10,5 @@ The website is created using:
 - Typescript 5
 
 **© Copyright by _[Mahmoud Mostafa](https://pph.me/mahmoudmostafa)_**
+
 **Saturday, November 04 2023**

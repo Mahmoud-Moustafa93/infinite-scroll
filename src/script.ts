@@ -38,7 +38,7 @@ const getPhotos = async function () {
     createImageElement(data);
 
     if (isInitialLoad) {
-      updateAPIURLWithNewCount(30);
+      updateAPIURLWithNewCount(10);
       isInitialLoad = false;
     }
   } catch (err) {
